@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1127372592872942613}
   - component: {fileID: 1127372592872942612}
   - component: {fileID: 1127372592872942619}
+  - component: {fileID: 4071068558820223069}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -113,3 +114,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4071068558820223069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127372592872942617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1964860b0e6fb244fb80917b188fb4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
+  defualtColor: {r: 1, g: 1, b: 1, a: 0}
+  positionOffset: {x: 0, y: 0.5, z: 0}

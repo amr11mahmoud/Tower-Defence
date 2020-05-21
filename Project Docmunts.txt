@@ -1,0 +1,29 @@
+  - Scripts [ enemy, Turret, waveSpawner, wayPoints ]
+  - prefabs [ enemy, Node, Turret, WayPoint ]
+  - Scenes [ mainScene ]
+
+  components : 
+
+ .1 Main Camera 
+
+ .2 Directional Light 
+
+ .3 Nodes : it's a big Node consist of small Nodes to create the white cubes in the game 
+
+ .4 Enviroment : is the gray path that enemies will walk on it 
+
+ .5 WayPoints : determines the path that enemies will take 
+
+ .6 Turret : will shoot into enemies 
+
+ .7 Start, End Points : start and end of eniemes path 
+
+ .8 enemy : will create at run time at the start point using the method spawnEnemy at waveSpawner
+	    Script
+ .9 Turret : will shoot into enemy [ all it's functions can be found at Turret script ]
+
+ .10 Wave Countdown Timer : Display timer between each wave 
+
+
+ code sequence : start -> countdown till zero -> enemies start to spawn -> enemies move from start to 			end -> Turret will shot on them if they get into it's range 
+
