@@ -33,9 +33,10 @@ public class waveSpawner : MonoBehaviour
         
         // decrease the countdown by 1 each second
         countdown -= Time.deltaTime;
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         
         // Change the UI text 
-        waveCountdownText.text = Mathf.Round(countdown ).ToString();
+        waveCountdownText.text = string.Format("{0:00.00}", countdown);
     }
 
      // coroutine to create the wave

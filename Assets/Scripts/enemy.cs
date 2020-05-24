@@ -10,17 +10,37 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
+    // enemy speed
     public float speed = 10f;
-
+    // the way point that the enemy will move to
     private Transform target;
     private int wavePointIndex = 0;
+    // enemy health
+    public int health = 100;
+    // money you will get after killing an enemy
+    public int moneyGain = 50;
 
      void Start()
      {
          target = wayPoints.points[0];
      }
 
-      void Update()
+     public void TakeDamage(int amount)
+     {
+         health -= amount;
+         if (health <= 0)
+         {
+             Die();
+         }
+     }
+
+     private void Die()
+     {
+         PlayerStats.Money += moneyGain;
+         Destroy(gameObject);
+     }
+
+     void Update()
       {
           // to reach target to substract our current position from it [ that give us the distance ] 
           Vector3 dir = target.position - transform.position;
@@ -39,10 +59,16 @@ public class enemy : MonoBehaviour
       {
           if (wavePointIndex >= wayPoints.points.Length -1)
           {
-             DestroyImmediate(gameObject);
-             return;
+              EndPath();
+              return;
           }
           wavePointIndex++;
           target = wayPoints.points[wavePointIndex];
+      }
+
+      void EndPath()
+      {
+          DestroyImmediate(gameObject);
+          PlayerStats.Lives--;
       }
 }
