@@ -20,6 +20,12 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        // stop all camera movement if the game is over
+        if (GameManager.gameIsOver)
+        {
+            this.enabled = false;
+            return;
+        }
         // Set movement Toggle for Debugging
         if (Input.GetKeyDown(KeyCode.Space))
         {

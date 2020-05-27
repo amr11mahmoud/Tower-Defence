@@ -2,38 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3445db96-28bd-4494-ac0b-e53672bba92f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/StandardTurretIcon.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/prefabs/StandardTurretItem.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/prefabs/StandardTurretItem.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Turret.JPG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BuildManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BuildManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Materials/Turret_Barrals.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Materials/Turret_Barrals.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Materials/Turret_Main.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Materials/Turret_Main.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Materials/Turret_Secondry.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Materials/Turret_Secondry.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Turret.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imports/Turret.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Material/BulletImpact.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Material/BulletImpact.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Node.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Node.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/mainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/mainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoneyUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoneyUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Turret.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TurretBluePrint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TurretBluePrint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/waveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/waveSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/BulletImpactEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/BulletImpactEffect.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Node.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Node.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tower-defense-assets/Sprites/StandardTurretIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/StandardTurretIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefabs/LaserBeamer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/LaserBeamer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +28,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MoneyUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameOver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/NodeUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuildManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TurretBluePrint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/livesUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/shop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/cf/f1112d0a/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/prefabs/LaserBeamer.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Turret.cs" root0="FORCE_HIGHLIGHTING" />
@@ -62,22 +54,29 @@
         <option value="$PROJECT_DIR$/Assets/enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/waveSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Turret.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Turret.cs" />
         <option value="$PROJECT_DIR$/Assets/BuildManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Node.cs" />
         <option value="$PROJECT_DIR$/Assets/CameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TurretBluePrint.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Node.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/waveSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/MoneyUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuildManager.cs" />
         <option value="$PROJECT_DIR$/Assets/shop.cs" />
         <option value="$PROJECT_DIR$/Assets/livesUI.cs" />
         <option value="$PROJECT_DIR$/Assets/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MoneyUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Turret.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/waveSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameOver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TurretBluePrint.cs" />
+        <option value="$PROJECT_DIR$/Assets/upgradeButtonUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuildManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Node.cs" />
+        <option value="$PROJECT_DIR$/Assets/NodeUI.cs" />
       </list>
     </option>
   </component>
@@ -129,7 +128,11 @@
       <workItem from="1590159724744" duration="3691000" />
       <workItem from="1590244890436" duration="4678000" />
       <workItem from="1590268221140" duration="9898000" />
-      <workItem from="1590340475221" duration="1936000" />
+      <workItem from="1590340475221" duration="8384000" />
+      <workItem from="1590384151718" duration="6410000" />
+      <workItem from="1590421484926" duration="3743000" />
+      <workItem from="1590432831467" duration="5151000" />
+      <workItem from="1590513239436" duration="13040000" />
     </task>
     <servers />
   </component>
@@ -138,6 +141,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="277" y="0" key="SettingsEditor" timestamp="1590010037739">
       <screen x="0" y="0" width="1536" height="834" />

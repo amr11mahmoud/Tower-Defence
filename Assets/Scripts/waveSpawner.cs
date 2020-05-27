@@ -36,14 +36,14 @@ public class waveSpawner : MonoBehaviour
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         
         // Change the UI text 
-        waveCountdownText.text = string.Format("{0:00.00}", countdown);
+        waveCountdownText.text = "Timer: "+string.Format("{0:00.00}", countdown);
     }
 
      // coroutine to create the wave
      IEnumerator spawnWave()
      {
          waveIndex++;
-         
+         PlayerStats.roundsSurvived++;
          for (int i = 0; i < waveIndex; i++)
          {
              spawnEnemy();

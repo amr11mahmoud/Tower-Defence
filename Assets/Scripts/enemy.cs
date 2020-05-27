@@ -11,21 +11,31 @@ using UnityEngine;
 public class enemy : MonoBehaviour
 {
     // enemy speed
-    public float speed = 10f;
-    // the way point that the enemy will move to
-    private Transform target;
-    private int wavePointIndex = 0;
+    public float startSpeed = 10f;
+    [HideInInspector]
+    public float speed;
+    
     // enemy health
-    public int health = 100;
+    public float health = 100f;
     // money you will get after killing an enemy
     public int moneyGain = 50;
+    
+    // the way point that the enemy will move to [ enemy movement ]
+    private Transform target;
+    private int wavePointIndex = 0;
+    
+    
+    // Die effect
+    public GameObject dieEffect;
 
      void Start()
      {
+         // related to enemy movement
          target = wayPoints.points[0];
+         speed = startSpeed;
      }
 
-     public void TakeDamage(int amount)
+     public void TakeDamage(float amount)
      {
          health -= amount;
          if (health <= 0)
@@ -34,11 +44,20 @@ public class enemy : MonoBehaviour
          }
      }
 
+     public void Slow(float slowPct)
+     {
+         speed = startSpeed * (1f - slowPct);
+     }
+
      private void Die()
      {
+         // Die Effect
+         GameObject dieEffectgfx = (GameObject)Instantiate(dieEffect, transform.position, transform.rotation);
+         Destroy(dieEffectgfx, 2f);
          PlayerStats.Money += moneyGain;
          Destroy(gameObject);
      }
+     
 
      void Update()
       {
@@ -52,7 +71,8 @@ public class enemy : MonoBehaviour
           {
               GetNextWayPoint();
           }
-          
+          // return speed to normal [ start speed ] after it scape from the laser range 
+          speed = startSpeed;
       }
 
       private void GetNextWayPoint()

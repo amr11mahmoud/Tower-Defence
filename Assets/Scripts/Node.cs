@@ -13,8 +13,12 @@ public class Node : MonoBehaviour
     private Renderer rend;
     
     // turret that will be build on top of the node
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public TurretBluePrint turretBluePrint;
+
+    [HideInInspector] public bool isUpgraded = false;
     
     // offset to raise the Turret above the ground 
     public Vector3 positionOffset;
@@ -39,20 +43,22 @@ public class Node : MonoBehaviour
             return;
         }
         
+        
+        if (turret != null)
+        {
+            _buildManager.SelectNode(this);
+            return;
+        }
+        
+        
         // return nothing if no turret is selected
         if (!_buildManager.CanBuild )
         {
             return;
         }
         
-        if (turret != null)
-        {
-            Debug.Log(" Can't Build There ! there is already a turret here "); //TODO display on Screen
-            return;
-        }
-        
         // method that will build the turret
-        _buildManager.BuildTurretOn(this);
+        BuildTurret(_buildManager.GetTurretToBuild());
 
     }
 
@@ -61,6 +67,27 @@ public class Node : MonoBehaviour
     {
         return transform.position + positionOffset;
     }
+
+    void BuildTurret(TurretBluePrint blueprint)
+    {
+        if (PlayerStats.Money < blueprint.cost)
+        {
+            Debug.Log(" Not Enough Money To build");
+            return;
+        }
+
+        PlayerStats.Money -= blueprint.cost;
+        // Build a Turret
+        GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition() , Quaternion.identity);
+        turret = _turret;
+
+        turretBluePrint = blueprint;
+        
+        GameObject buildEfx = (GameObject)Instantiate(_buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(buildEfx, 5f);
+        Debug.Log((" Turret build ! ") + PlayerStats.Money);
+    }
+    
     // built in function get calls on each hover
     private void OnMouseEnter()
     {
@@ -90,5 +117,37 @@ public class Node : MonoBehaviour
     private void OnMouseExit()
     {
         rend.material.color = defualtColor;
+    }
+
+    // method to upgrade the turret
+    public void UpgradeTurret( )
+    {
+        if (PlayerStats.Money < turretBluePrint.upgradecost)
+        {
+            Debug.Log(" Not Enough Money To Upgrade");
+            return;
+        }
+
+        PlayerStats.Money -= turretBluePrint.upgradecost;
+        
+        // Get rid of old Turret
+        Destroy(turret);
+        
+        // Build the Upgraded Turret
+        GameObject _turret = (GameObject)Instantiate(turretBluePrint.upgradedPrefab, GetBuildPosition() , Quaternion.identity);
+        turret = _turret;
+        
+        GameObject buildEfx = (GameObject)Instantiate(_buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(buildEfx, 5f);
+        
+        isUpgraded = true;
+        Debug.Log((" Turret upgraded ! ") + PlayerStats.Money);
+    }
+    
+    // method to sell the turret
+    public void SellTurret()
+    {
+        PlayerStats.Money += turretBluePrint.cost;
+        Destroy(turret);
     }
 }

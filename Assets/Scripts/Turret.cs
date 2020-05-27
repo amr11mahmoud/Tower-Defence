@@ -5,12 +5,28 @@ public class Turret : MonoBehaviour
 {
     // the target we will aim at
     private Transform target;
-    
+    // will use this variable to cache enemy, to operate on it if selected turret is laser 
+    private enemy targetEnemy;
+
     // the range of Turret [ if enemy gets in Turret will start shoot at the enemy]
-    [Header("Attributes")]
+    [Header("General")]
     public float range = 15f;
+    
+    [Header("Use Bullets (defualt)")]
+    public GameObject bulletPrefab;
     public float fireRate =1f;
     private float fireCountDown = 0f;
+
+    [Header("Use leaser")] 
+    // check if Turret will use leaser 
+    public bool useLeaser = false;
+    public int damageOverTime = 30;
+    
+    public LineRenderer lineRenderer;
+    public ParticleSystem impactEffect;
+    public Light leaserLight;
+
+    public float slowPct =.5f;
     
     [Header("Unity SetUp Fields")]
     public string enemyTag = "Enemy";
@@ -20,10 +36,7 @@ public class Turret : MonoBehaviour
     public float turnSpeed = 10f;
     
     [Header("Bullet Attributes")]
-    public GameObject bulletPrefab;
     public Transform firePoint;
-    
-  
     
     
     
@@ -63,6 +76,7 @@ public class Turret : MonoBehaviour
                 // and the enemy itself in [nearestEnemy] 
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
+                targetEnemy = nearestEnemy.GetComponent<enemy>();
             }
         }
         
@@ -79,12 +93,41 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        // if there is no target do noting 
+        // if there is no target do noting, only disable the laser [ if it's laser beam turret ]
         if (target == null)
+        {
+            if (useLeaser && lineRenderer.enabled)
+            {
+                lineRenderer.enabled = false;
+                impactEffect.Stop();
+                leaserLight.enabled = false;
+            }
             return;
+        }
 
         // Rotate the Turret to face the enemy
+        lockOnTarget();
+
+        if (useLeaser) // code for laser
+        {
+            Laser();
+        }
+        else // Code for bullet 
+        {
+            if (fireCountDown <= 0f)
+            {
+                shoot();
+                fireCountDown = 1f / fireRate;
+            }
+            fireCountDown -= Time.deltaTime;
+        }
+
         
+    }
+    
+    // set the direction of the turret head to face the target
+    private void lockOnTarget()
+    {
         // 1. find the direction 
         Vector3 dir = target.position - transform.position;
         // 2. calculate the angel 
@@ -93,15 +136,37 @@ public class Turret : MonoBehaviour
         Vector3 rotation = (Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed)).eulerAngles;
         // 4. rotate the head
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-        
-        // check it countdown is zero it will shoot a bullet and wait till next countdown reach zero [ fireRate will control how long to wait ]
-        if (fireCountDown <= 0f)
-        {
-            shoot();
-            fireCountDown = 1f / fireRate;
-        }
+    }
+    
+    // set laser position, and enable it
+    private void Laser( )
+    {
+      if (targetEnemy != null) 
+      { 
+          // call get damage and pass the amount of damage
+          targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+          targetEnemy.Slow(slowPct);
+      }
+      
+      // set the position of the laser beam from the Leaser beam to the target
+      lineRenderer.SetPosition(0, firePoint.position );
+      lineRenderer.SetPosition(1, target.position);
 
-        fireCountDown -= Time.deltaTime;
+      // get the position of enemy looking back to the turret
+      Vector3 dir = firePoint.position - target.position;
+      // set the position of the Particle system [ we need to offset it by by half from the center of the enemy ]
+      impactEffect.transform.position = target.position + dir.normalized ;
+      // set the rotation of the Particle system
+      impactEffect.transform.rotation = Quaternion.LookRotation(dir);
+        
+      // enable the object line renderer
+      if (!lineRenderer.enabled)
+      {
+          lineRenderer.enabled = true;
+            
+          impactEffect.Play();
+          leaserLight.enabled = true;
+      }
     }
 
     void shoot()

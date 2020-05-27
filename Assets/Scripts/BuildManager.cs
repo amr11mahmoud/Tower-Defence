@@ -7,7 +7,10 @@ public class BuildManager : MonoBehaviour
 {
     // carry which turret we will build 
     private TurretBluePrint turretToBuild;
-
+    // carry which node we select to sell or upgrade the turret on it
+    private Node selectedNode;
+    public NodeUI nodeUI;
+    
     // variable to carry the Build Manager
     public static BuildManager instance;
 
@@ -33,28 +36,42 @@ public class BuildManager : MonoBehaviour
    {
        get { return  PlayerStats.Money >= turretToBuild.cost; }
    }
+   
 
+    public void  SelectNode(Node node)
+    {
+        if (selectedNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+        selectedNode = node;
+        // so we only select one at time, Node or Turret to build 
+        turretToBuild = null;
+        // Disable the Node UI before enable it again to display the animation
+        nodeUI.hideNodeUI();
+        nodeUI.setTarget(node);
+    }
+
+    public void DeselectNode()
+    {
+        selectedNode = null;
+        nodeUI.hideNodeUI();
+    }
+
+    
     // method used to set which Turret to built [ it will be called in Shop Script]
     public void selectTurretToBuild(TurretBluePrint Turret)
     {
         turretToBuild = Turret;
-    }
-    
-    // method to build the Turret on top of the Node
-    public void BuildTurretOn(Node node)
-    {
-        if (PlayerStats.Money < turretToBuild.cost)
-        {
-            Debug.Log(" Not Enough Money To build");
-            return;
-        }
 
-        PlayerStats.Money -= turretToBuild.cost;
-        // Build a Turret
-        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition() , Quaternion.identity);
-        node.turret = turret;
-        GameObject buildEfx = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(buildEfx, 5f);
-        Debug.Log((" Turret build ! Money Left : ") + PlayerStats.Money);
+        // so we only select one at time, Node or Turret to build 
+        DeselectNode();
+    }
+
+
+    public TurretBluePrint GetTurretToBuild()
+    {
+        return turretToBuild;
     }
 }
