@@ -13,6 +13,10 @@ public class BuildManager : MonoBehaviour
     
     // variable to carry the Build Manager
     public static BuildManager instance;
+    
+    public GameObject buildEffect;
+    public GameObject sellEffect;
+
 
     private void Awake()
     {
@@ -24,7 +28,6 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject buildEffect;
     
     // property we get it's value only we can't set it
    public bool CanBuild

@@ -147,7 +147,12 @@ public class Node : MonoBehaviour
     // method to sell the turret
     public void SellTurret()
     {
-        PlayerStats.Money += turretBluePrint.cost;
+        PlayerStats.Money += turretBluePrint.GetSellAmount();
         Destroy(turret);
+        turretBluePrint = null;
+        // Spawn a cool Effect
+        GameObject buildEfx = (GameObject)Instantiate(_buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(buildEfx, 5f);
+        
     }
 }

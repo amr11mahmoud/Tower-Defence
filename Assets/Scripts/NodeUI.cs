@@ -18,7 +18,7 @@ public class NodeUI : MonoBehaviour
         this.target = _node;
         transform.position = target.GetBuildPosition();
 
-        SellCost.text = "$" + target.turretBluePrint.cost.ToString();
+        SellCost.text = "$" + target.turretBluePrint.GetSellAmount().ToString();
         if (!target.isUpgraded)
         {
             UpgradeCost.text = "$" + target.turretBluePrint.upgradecost.ToString();
