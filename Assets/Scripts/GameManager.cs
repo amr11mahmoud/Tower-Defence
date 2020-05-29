@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         // we have to put reset the static variable value each time we start the scene 
         gameIsOver = false;
         gameIsPaused = false;
+        waveSpawner.EnemiesAlive = 0;
     }
 
     private void Update()

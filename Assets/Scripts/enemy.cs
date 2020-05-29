@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 // sudo code this script 
 // 1. we create an array of waypoints in other script with the name of wayPoints that contain all points we want to reach
@@ -16,7 +17,9 @@ public class enemy : MonoBehaviour
     public float speed;
     
     // enemy health
-    public float health = 100f;
+    public float startHealth = 100f;
+    [HideInInspector]
+    public float health;
     // money you will get after killing an enemy
     public int moneyGain = 50;
     
@@ -27,21 +30,49 @@ public class enemy : MonoBehaviour
     
     // Die effect
     public GameObject dieEffect;
+    
+    // Image that will adjust the health bar according to the damage that enemy take
+    public Image healthBarImage;
+    private float startFillAmount = 1;
+    private float fillAmount;
+    
 
      void Start()
      {
          // related to enemy movement
          target = wayPoints.points[0];
          speed = startSpeed;
+         fillAmount = startFillAmount;
+         health = startHealth;
      }
 
      public void TakeDamage(float amount)
      {
          health -= amount;
+         adjustHealthBar();
          if (health <= 0)
          {
              Die();
          }
+     }
+
+     private void adjustHealthBar ()
+     {
+         fillAmount = health / startHealth;
+         if (fillAmount < .7 && fillAmount > .4)
+         {
+             healthBarImage.color = Color.yellow;
+         }
+         else if (fillAmount <= .4)
+         {
+             healthBarImage.color = Color.red;
+         }
+         else
+         {
+             healthBarImage.color = Color.green;
+         }
+
+         healthBarImage.fillAmount = fillAmount;
      }
 
      public void Slow(float slowPct)
@@ -55,6 +86,9 @@ public class enemy : MonoBehaviour
          GameObject dieEffectgfx = (GameObject)Instantiate(dieEffect, transform.position, transform.rotation);
          Destroy(dieEffectgfx, 2f);
          PlayerStats.Money += moneyGain;
+         
+         // Subtract one enemy from enemies alive
+         waveSpawner.EnemiesAlive--;
          Destroy(gameObject);
      }
      
@@ -90,5 +124,6 @@ public class enemy : MonoBehaviour
       {
           DestroyImmediate(gameObject);
           PlayerStats.Lives--;
+          waveSpawner.EnemiesAlive--;
       }
 }

@@ -8,7 +8,10 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public Text survivedRounds;
-
+    public SceneFader sceneFader;
+    public string mainMenu = "mainMenu";
+    public GameManager gameManager;
+    
     private void OnEnable()
     {
         survivedRounds.text = PlayerStats.roundsSurvived.ToString();
@@ -16,12 +19,13 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
 
     public void Menu()
     {
-        Debug.Log(" go to menu ");
+        gameManager.Resume();
+        sceneFader.FadeTo(mainMenu);
     }
 }

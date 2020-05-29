@@ -4,8 +4,11 @@ using UnityEngine.UI;
 // responsible to create enemy waves 
 public class waveSpawner : MonoBehaviour
 {
+    // you can use static in variable to access and change it from other scripts without a reference 
+    public static int EnemiesAlive = 0;
+    
     // the enemy prefab that will be Instantiated
-    public Transform enemyPrefab;
+    public Wave[] waves;
     
     // where to spawn the enemy
     public Transform spawnPoint;
@@ -24,11 +27,17 @@ public class waveSpawner : MonoBehaviour
 
      void Update()
     {
+        if (EnemiesAlive > 0)
+        {
+            return;
+        }
+        
         if (countdown <= 0f)
         {
             // call the coroutine 
             StartCoroutine(spawnWave());
             countdown = timeBetweenWaves;
+            return;
         }
         
         // decrease the countdown by 1 each second
@@ -42,19 +51,32 @@ public class waveSpawner : MonoBehaviour
      // coroutine to create the wave
      IEnumerator spawnWave()
      {
-         waveIndex++;
+
          PlayerStats.roundsSurvived++;
-         for (int i = 0; i < waveIndex; i++)
+         // Get the wave to spawn
+         Wave wave = waves[waveIndex];
+         
+         for (int i = 0; i < wave.count; i++)
          {
-             spawnEnemy();
-             // wait .5 sec between each enemy we create
-             yield return new WaitForSeconds(0.5f);
+             spawnEnemy(wave.enemy);
+             // wait Wave rate sec between each enemy we create
+             yield return new WaitForSeconds(1f / wave.rate);
          }
+         waveIndex++;
+         
+         //TODO Fix game win before killing all enemies
+         if (waveIndex == waves.Length)
+         {
+             Debug.Log(" Level Win ");
+             this.enabled = false;
+         }
+         
      }
 
      // method to spawn the enemy
-     void spawnEnemy()
-     {
-         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+     void spawnEnemy( GameObject enemy)
+     { 
+         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+         EnemiesAlive++;
      }
 }
