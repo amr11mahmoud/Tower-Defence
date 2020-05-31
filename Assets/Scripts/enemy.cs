@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,9 +36,11 @@ public class enemy : MonoBehaviour
     public Image healthBarImage;
     private float startFillAmount = 1;
     private float fillAmount;
-    
 
-     void Start()
+    private bool isDead = false;
+    public GameObject fuckSoundEffect;
+
+    void Start()
      {
          // related to enemy movement
          target = wayPoints.points[0];
@@ -50,9 +53,10 @@ public class enemy : MonoBehaviour
      {
          health -= amount;
          adjustHealthBar();
-         if (health <= 0)
+         if (health <= 0 && !isDead)
          {
-             Die();
+             
+                 Die();
          }
      }
 
@@ -82,14 +86,23 @@ public class enemy : MonoBehaviour
 
      private void Die()
      {
+         isDead = true;
          // Die Effect
          GameObject dieEffectgfx = (GameObject)Instantiate(dieEffect, transform.position, transform.rotation);
+         GameObject fuckSoundfx = (GameObject)Instantiate(fuckSoundEffect, transform.position, transform.rotation);
          Destroy(dieEffectgfx, 2f);
+         StartCoroutine(destroyFuckSound());
          PlayerStats.Money += moneyGain;
          
          // Subtract one enemy from enemies alive
          waveSpawner.EnemiesAlive--;
          Destroy(gameObject);
+     }
+
+     IEnumerator destroyFuckSound()
+     {
+         yield return new WaitForSeconds(1f);
+         DestroyImmediate(fuckSoundEffect);
      }
      
 
@@ -122,6 +135,7 @@ public class enemy : MonoBehaviour
 
       void EndPath()
       {
+          livesUI.decreaseHearts = true;
           DestroyImmediate(gameObject);
           PlayerStats.Lives--;
           waveSpawner.EnemiesAlive--;

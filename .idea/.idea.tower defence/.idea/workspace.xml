@@ -2,51 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3445db96-28bd-4494-ac0b-e53672bba92f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Fast.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Fast/DieEffect _ Fast.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Fast/DieEffect _ Fast.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Fast/Enemy _ Fast.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Fast/Enemy _ Fast.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Fast/Enemy _ Fast.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Fast/Enemy _ Fast.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Simple.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Simple/Enemy _ Simple.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Tough.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Tough/DieEffect _ Tough.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Tough/DieEffect _ Tough.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Tough/Enemy _ Tough.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Tough/Enemy _ Tough.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Tough/Enemy_ Tough.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Tough/Enemy_ Tough.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneFader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneFader.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Wave.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Wave.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WhiteSquare.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WhiteSquare.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/prefabs/SceneFader.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/prefabs/SceneFader.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animation/LevelButton.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animation/LevelButton.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/level02.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/level02.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/levelSelector.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/levelSelector.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/heart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/levelSelector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/levelSelector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/prefabs/LevelButton.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/prefabs/LevelButton.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/prefabs/heartLife.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/prefabs/heartLife.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tower-defense-assets/Sprites/heart.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tower defence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainMenu.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Material/Enemy.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Simple/Enemy _ Simple.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Material/Enemy.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Simple/Enemy _ Simple.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PauseMenu.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/mainLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/mainLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Simple/Enemy _ Simple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Simple/Enemy _ Simple.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Tough/Enemy_ Tough.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Tough/Enemy_ Tough.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Material/GroundPlane.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Material/GroundPlane.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/mainLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/level01.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/mainLevel.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/level01.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/mainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/mainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameOver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/livesUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/livesUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/waveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/waveSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/DieEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Simple/DieEffect _ Simple.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/DieEffect.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Simple/DieEffect _ Simple.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Enemy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Enemy.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Simple/Enemy _ Simple.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,17 +45,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MoneyUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NodeUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameOver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuildManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/livesUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TurretBluePrint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/prefabs/Bullet.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/shop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Wave.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/prefabs/LaserBeamer.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/cf/f1112d0a/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
@@ -80,6 +62,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/wayPoints.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameOver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TurretBluePrint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/prefabs/Bullet.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/cf/f1112d0a/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/levelSelector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/prefabs/MissileLauncher_Upgraded.prefab" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -103,7 +90,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Turret.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/GameOver.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/upgradeButtonUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TurretBluePrint.cs" />
         <option value="$PROJECT_DIR$/Assets/NodeUI.cs" />
@@ -112,13 +98,16 @@
         <option value="$PROJECT_DIR$/Assets/MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/PauseMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/SceneFader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameOver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Wave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/livesUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/waveSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/levelSelector.cs" />
       </list>
     </option>
   </component>
@@ -181,7 +170,10 @@
       <workItem from="1590600131761" duration="6232000" />
       <workItem from="1590632421203" duration="1625000" />
       <workItem from="1590696212304" duration="9096000" />
-      <workItem from="1590727578920" duration="4391000" />
+      <workItem from="1590727578920" duration="7396000" />
+      <workItem from="1590747644439" duration="5537000" />
+      <workItem from="1590793570384" duration="1567000" />
+      <workItem from="1590798241678" duration="920000" />
     </task>
     <servers />
   </component>

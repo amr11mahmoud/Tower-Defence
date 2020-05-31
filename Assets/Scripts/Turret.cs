@@ -25,6 +25,7 @@ public class Turret : MonoBehaviour
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
     public Light leaserLight;
+    public AudioSource laserSound;
 
     public float slowPct =.5f;
     
@@ -93,6 +94,11 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.gameIsOver)
+        {
+            Destroy(gameObject);
+        }
+        
         // if there is no target do noting, only disable the laser [ if it's laser beam turret ]
         if (target == null)
         {
@@ -101,6 +107,7 @@ public class Turret : MonoBehaviour
                 lineRenderer.enabled = false;
                 impactEffect.Stop();
                 leaserLight.enabled = false;
+                laserSound.enabled = false;
             }
             return;
         }
@@ -146,6 +153,7 @@ public class Turret : MonoBehaviour
           // call get damage and pass the amount of damage
           targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
           targetEnemy.Slow(slowPct);
+          laserSound.enabled = true;
       }
       
       // set the position of the laser beam from the Leaser beam to the target
@@ -163,7 +171,6 @@ public class Turret : MonoBehaviour
       if (!lineRenderer.enabled)
       {
           lineRenderer.enabled = true;
-            
           impactEffect.Play();
           leaserLight.enabled = true;
       }

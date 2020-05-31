@@ -25,12 +25,17 @@ public class waveSpawner : MonoBehaviour
     // Countdown Timer Text
     public Text waveCountdownText;
 
+    public GameManager gameManager;
+
      void Update()
     {
         if (EnemiesAlive > 0)
         {
             return;
         }
+        
+        // load next level after killing all enemies
+        if (LoadNextLevel()) return;
         
         if (countdown <= 0f)
         {
@@ -48,14 +53,26 @@ public class waveSpawner : MonoBehaviour
         waveCountdownText.text = "Timer: "+string.Format("{0:00.00}", countdown);
     }
 
+     private bool LoadNextLevel()
+     {
+         if (waveIndex == waves.Length)
+         {
+             gameManager.winLevel();
+             this.enabled = false;
+             return true;
+         }
+         
+         return false;
+     }
+
      // coroutine to create the wave
      IEnumerator spawnWave()
      {
-
          PlayerStats.roundsSurvived++;
          // Get the wave to spawn
          Wave wave = waves[waveIndex];
          
+         EnemiesAlive = wave.count;
          for (int i = 0; i < wave.count; i++)
          {
              spawnEnemy(wave.enemy);
@@ -63,20 +80,11 @@ public class waveSpawner : MonoBehaviour
              yield return new WaitForSeconds(1f / wave.rate);
          }
          waveIndex++;
-         
-         //TODO Fix game win before killing all enemies
-         if (waveIndex == waves.Length)
-         {
-             Debug.Log(" Level Win ");
-             this.enabled = false;
-         }
-         
      }
 
      // method to spawn the enemy
      void spawnEnemy( GameObject enemy)
      { 
          Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-         EnemiesAlive++;
      }
 }

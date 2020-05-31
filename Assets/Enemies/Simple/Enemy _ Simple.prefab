@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 2261745593611765036}
   - component: {fileID: 8919477937184162843}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy _ Simple
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,11 +355,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceeadd2ceaf598742a67bf2de64f284f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 30
+  startSpeed: 15
   speed: 10
   startHealth: 100
   health: 500
-  moneyGain: 50
+  moneyGain: 5
   dieEffect: {fileID: 3656312910756207998, guid: 2fb05c0d3f4e7d84ca593a9e543769d7,
     type: 3}
   healthBarImage: {fileID: 884886269}
+  fuckSoundEffect: {fileID: 2768940231443675903, guid: a69cb91365ee91249b06b59bc6721c32,
+    type: 3}

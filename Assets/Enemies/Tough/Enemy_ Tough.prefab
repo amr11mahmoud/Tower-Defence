@@ -357,9 +357,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 7
   speed: 10
-  startHealth: 350
+  startHealth: 300
   health: 500
-  moneyGain: 140
+  moneyGain: 15
   dieEffect: {fileID: 3656312910756207998, guid: 66ed98b2dc365d54f819ac03926b4d8a,
     type: 3}
   healthBarImage: {fileID: 884886269}
+  fuckSoundEffect: {fileID: 2768940231443675903, guid: a69cb91365ee91249b06b59bc6721c32,
+    type: 3}

@@ -25,6 +25,9 @@ public class Node : MonoBehaviour
 
     private BuildManager _buildManager;
 
+    private int tapCount;
+    private float doubleTapTimer;
+
     private void Start()
     {
         // Get the component on start
@@ -37,6 +40,7 @@ public class Node : MonoBehaviour
     // method that get called when we press on the Node [ will build the turret ]
     private void OnMouseDown()
     {
+        
         // if there is any object above the node then we will not be able to build there
         if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -57,9 +61,25 @@ public class Node : MonoBehaviour
             return;
         }
         
-        // method that will build the turret
-        BuildTurret(_buildManager.GetTurretToBuild());
-
+        // BuildTurret(_buildManager.GetTurretToBuild());
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            tapCount++;
+        }
+        if (tapCount > 0)
+        {
+            doubleTapTimer += Time.deltaTime;
+        }
+        if (tapCount >= 2)
+        {
+            //What you want to do
+            // method that will build the turret
+            BuildTurret(_buildManager.GetTurretToBuild());
+            doubleTapTimer = 0.0f;
+            tapCount = 0;
+        }
+        
+        
     }
 
     // locate the position to build the turret [ will be called at Build Manager]

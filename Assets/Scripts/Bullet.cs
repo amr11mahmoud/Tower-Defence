@@ -16,12 +16,20 @@ public class Bullet : MonoBehaviour
     
     public GameObject ImpactEffect;
 
+    public AudioSource soundEffect;
+
     // this method will use to get the target from Turret Script [ the target that the bullet will chase ] and it will be called at the Turret Script
     public void Seek(Transform _target)
     {
         target = _target;
         
     }
+
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         if (target == null)

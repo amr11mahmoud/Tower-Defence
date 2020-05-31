@@ -1,78 +1,107 @@
-﻿using System.Numerics;
-using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
+﻿using UnityEngine;
 
-// will Use to move the Camera
-public class CameraController : MonoBehaviour
+class CameraController : MonoBehaviour
 {
-    private bool doMovement = true;
+// #if UNITY_IOS || UNITY_ANDROID
+    public Camera Camera;
+    public bool Rotate;
+    protected Plane Plane;
     
-    // Camera Moving Speed
-    public float panSpeed = 30f;
-    // Space from top of screen which if we hover the mouse there, Camera will move forward
-    public float panBorderThickness = 10f;
-    // Control the speed of scrolling 
-    public float scrollSpeed = 5f;
-    // Variables to determine min and max zoom 
-    public float minY = 10f;
+    public float minY = 60f;
     public float maxY = 80f;
 
-
-    void Update()
+    private void Awake()
     {
-        // stop all camera movement if the game is over
-        if (GameManager.gameIsOver)
-        {
-            this.enabled = false;
-            return;
-        }
-        // Set movement Toggle for Debugging
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            doMovement = !doMovement;
-        }
-        
-        if (!doMovement)
-        {
-            return;
-        }
-        
-        // Move Forward, [ Input.mousePosition tells you where the cursor is in screen in Vector3 ]
-        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
-        {
-            // [ Vector3.forward == new Vectore3 ( 0f, 0f, 1f )]
-            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
-        } 
-        
-        // Move Back [ Space.World is Important !!]
-        else if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
-        {
-            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
-        }
-        
-        // Move Right
-        else if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
-        {
-            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
-
-        }
-        
-        // Move Left
-        else if (Input.GetKey("a" ) || Input.mousePosition.x <= panBorderThickness)
-        {
-            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
-
-        }
-        
-        // Zoom In and Out movement [ Input.GetAxis Mouse ScrollWheel gets called after any change on the wheel ]
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        // get Current position and store it in [ Pos variable ]
-        Vector3 pos = transform.position;
-        // Change the Y axis in that variable
-        pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
-        // Mathf.Climp will destrict value between two numbers [ value we want to destrict ,min, max]
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
-        // Now assign that new position to be the current position 
-        transform.position = pos;
+        if (Camera == null)
+            Camera = Camera.main;
     }
+
+    private void Update()
+    {
+        //Update Plane
+        if (Input.touchCount >= 1)
+        {
+            Plane.SetNormalAndPosition(transform.up, transform.position);
+        }
+
+        var Delta1 = Vector3.zero;
+        var Delta2 = Vector3.zero;
+
+        //Scroll
+        if (Input.touchCount >= 1)
+        {            
+            Delta1 = PlanePositionDelta(Input.GetTouch(0));
+
+            if (Input.GetTouch(0).phase == TouchPhase.Moved)
+            {
+                print(Camera.transform.position);
+                if (Camera.transform.position.x <= 50 && Camera.transform.position.x >= -50 && Camera.transform.position.z <= 20 && Camera.transform.position.z >= -70)
+                {
+                    Camera.transform.Translate(Delta1, Space.World);
+                }
+                else if (Camera.transform.position.x > 50 || Camera.transform.position.z > 20 ){
+                    Camera.transform.Translate(new Vector3(-1,0,-1), Space.World);
+                }else if (Camera.transform.position.x < -50 || Camera.transform.position.z < -70){
+                    Camera.transform.Translate(new Vector3(1,0,1), Space.World);
+                }
+            }
+                
+        }
+
+        //Pinch
+        if (Input.touchCount >= 2)
+        {            
+            var pos1  = PlanePosition(Input.GetTouch(0).position);
+            var pos2  = PlanePosition(Input.GetTouch(1).position);
+            var pos1b = PlanePosition(Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition);
+            var pos2b = PlanePosition(Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition);
+
+            //calc zoom
+            var zoom = Vector3.Distance(pos1, pos2) /
+                       Vector3.Distance(pos1b, pos2b);
+            var zoomInOut = 1 / zoom;
+            Vector3 vectorZoom = Vector3.LerpUnclamped(pos1, Camera.transform.position, zoomInOut);
+            vectorZoom.y = Mathf.Clamp(vectorZoom.y, minY, maxY);
+
+            //Move cam amount the mid ray
+            Camera.transform.position = vectorZoom;
+
+            if (Rotate && pos2b != pos2)
+                Camera.transform.RotateAround(pos1, Plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal));
+        }
+        
+
+    }
+
+    protected Vector3 PlanePositionDelta(Touch touch)
+    {
+        //not moved
+        if (touch.phase != TouchPhase.Moved)
+            return Vector3.zero;
+
+        //delta
+        var rayBefore = Camera.ScreenPointToRay(touch.position - touch.deltaPosition);
+        var rayNow = Camera.ScreenPointToRay(touch.position);
+        if (Plane.Raycast(rayBefore, out var enterBefore) && Plane.Raycast(rayNow, out var enterNow))
+            return rayBefore.GetPoint(enterBefore) - rayNow.GetPoint(enterNow);
+
+        //not on plane
+        return Vector3.zero;
+    }
+
+    protected Vector3 PlanePosition(Vector2 screenPos)
+    {
+        //position
+        var rayNow = Camera.ScreenPointToRay(screenPos);
+        if (Plane.Raycast(rayNow, out var enterNow))
+            return rayNow.GetPoint(enterNow);
+
+        return Vector3.zero;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + transform.up);
+    }
+// #endif
 }

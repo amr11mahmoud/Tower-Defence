@@ -359,7 +359,9 @@ MonoBehaviour:
   speed: 10
   startHealth: 80
   health: 500
-  moneyGain: 100
+  moneyGain: 10
   dieEffect: {fileID: 3656312910756207998, guid: bc9ce48a50faef345b2bdaee995b2abf,
     type: 3}
   healthBarImage: {fileID: 884886269}
+  fuckSoundEffect: {fileID: 2768940231443675903, guid: a69cb91365ee91249b06b59bc6721c32,
+    type: 3}

@@ -7,15 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public Text survivedRounds;
     public SceneFader sceneFader;
     public string mainMenu = "mainMenu";
     public GameManager gameManager;
     
-    private void OnEnable()
-    {
-        survivedRounds.text = PlayerStats.roundsSurvived.ToString();
-    }
+    
 
     public void Retry()
     {
@@ -27,5 +23,6 @@ public class GameOver : MonoBehaviour
     {
         gameManager.Resume();
         sceneFader.FadeTo(mainMenu);
+        Time.timeScale = 1;
     }
 }

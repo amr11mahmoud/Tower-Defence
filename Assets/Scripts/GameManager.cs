@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUi;
     public GameObject pauseMenu;
 
+    public GameObject winMenu;
+    
+
+    public SceneFader fader;
+    
+
     private void Start()
     {
         // we have to put reset the static variable value each time we start the scene 
@@ -66,6 +72,13 @@ public class GameManager : MonoBehaviour
         gameIsOver = true;
         // enable game over UI menu when the player died
         gameOverUi.SetActive(true);
-        Time.timeScale = 0;
     }
+    
+    public void winLevel()
+    {
+        gameIsOver = true;
+        winMenu.SetActive(true);
+    }
+    
+
 }
